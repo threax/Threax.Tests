@@ -42,9 +42,9 @@ namespace Threax.AspNetCore.Tests
         /// </summary>
         /// <typeparam name="T">The type to create</typeparam>
         /// <returns>The instance of T.</returns>
-        public T Create<T>()
+        public T Get<T>()
         {
-            return (T)Create(typeof(T));
+            return (T)Get(typeof(T));
         }
 
         /// <summary>
@@ -52,7 +52,7 @@ namespace Threax.AspNetCore.Tests
         /// </summary>
         /// <param name="t">The type.</param>
         /// <returns>A new instance of t.</returns>
-        public Object Create(Type t)
+        public Object Get(Type t)
         {
             Object created;
             if (!createdObjects.TryGetValue(t, out created))
