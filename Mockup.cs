@@ -28,13 +28,14 @@ namespace Threax.AspNetCore.Tests
 
         /// <summary>
         /// Add a custom function that is called when a type is requested and creates it. This can return anything
-        /// as long as its an instance of T (could be a mock or real object).
+        /// as long as its an instance of T (could be a mock or real object). This function will always replace
+        /// any previously registered callback.
         /// </summary>
         /// <typeparam name="T">The type to register.</typeparam>
         /// <param name="cb">The callback to call when type needs to be created.</param>
         public void Add<T>(Func<Mockup, T> cb)
         {
-            customCreateFuncs.Add(typeof(T), m => cb(m));
+            customCreateFuncs[typeof(T)] = m => cb(m);
         }
 
         /// <summary>
