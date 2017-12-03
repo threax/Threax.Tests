@@ -2,10 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
-    <Version>0.0.3</Version>
+    <Version>1.0.0</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <IncludeSymbols>True</IncludeSymbols>
     <IncludeSource>True</IncludeSource>
+    <Description>Some helper clases for writing tests with Moq.</Description>
+    <PackageProjectUrl>https://github.com/threax/Threax.AspNetCore.Convention</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/threax/Threax.AspNetCore.Convention</RepositoryUrl>
+    <Authors>Andrew Piper</Authors>
+    <Company />
   </PropertyGroup>
 
   <ItemGroup>
