@@ -11,6 +11,8 @@
     <RepositoryUrl>https://github.com/threax/Threax.AspNetCore.Convention</RepositoryUrl>
     <Authors>Andrew Piper</Authors>
     <Company />
+    <PackageLicenseUrl>https://github.com/threax/Threax.AspNetCore.Convention/blob/master/LICENSE</PackageLicenseUrl>
+    <Copyright></Copyright>
   </PropertyGroup>
 
   <ItemGroup>
