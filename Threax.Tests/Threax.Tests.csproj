@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>1.0.2</Version>
+    <Version>2.0.0-pre1</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <IncludeSymbols>True</IncludeSymbols>
     <IncludeSource>True</IncludeSource>
@@ -13,6 +13,7 @@
     <Company />
     <PackageLicenseUrl>https://github.com/threax/Threax.Tests/blob/master/LICENSE</PackageLicenseUrl>
     <Copyright></Copyright>
+    <PackageReleaseNotes>This version has the same external interface, but switches to using .net depenency injection under the hood. This allows for easier testing of libraries that setup services themselves. It requires Microsoft.Extensions.DependencyInjection where before it just used the abstractions.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
