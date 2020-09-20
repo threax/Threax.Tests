@@ -43,6 +43,11 @@ namespace Threax.AspNetCore.Tests
         /// <param name="cb">The callback to call when type needs to be created.</param>
         public void Add<T>(Func<Mockup, T> cb)
         {
+            if(serviceProvider != null)
+            {
+                throw new InvalidOperationException($"Cannot register a type after calling '{nameof(Get)}' once.");
+            }
+
             mockServiceCollection.AddSingleton(typeof(T), s => cb(this));
         }
 

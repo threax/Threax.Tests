@@ -53,6 +53,29 @@ namespace Threax.Tests.Tests
         }
 
         [Fact]
+        public void MockAfterFail()
+        {
+            //This test just uses exception classes due to easy inheritance
+            //not because it actually is exception based
+
+            var mockup = new Mockup();
+            mockup.Add<Exception>(s =>
+            {
+                return new InvalidCastException();
+            });
+
+            var test = mockup.Get<Exception>();
+            Assert.IsType<InvalidCastException>(test);
+
+            Assert.Throws<InvalidOperationException>(() => {
+                mockup.Add<Exception>(s =>
+                {
+                    return new InvalidOperationException();
+                });
+            });
+        }
+
+        [Fact]
         public void DiTransient()
         {
             var mockup = new Mockup();
