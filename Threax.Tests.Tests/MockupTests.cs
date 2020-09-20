@@ -24,6 +24,27 @@ namespace Threax.Tests.Tests
         }
 
         [Fact]
+        public void MockOverride()
+        {
+            //This test just uses exception classes due to easy inheritance
+            //not because it actually is exception based
+
+            var mockup = new Mockup();
+            mockup.Add<Exception>(s =>
+            {
+                return new InvalidCastException();
+            });
+
+            mockup.Add<Exception>(s =>
+            {
+                return new InvalidOperationException();
+            });
+
+            var test = mockup.Get<Exception>();
+            Assert.IsType<InvalidOperationException>(test);
+        }
+
+        [Fact]
         public void AutoMock()
         {
             var mockup = new Mockup();

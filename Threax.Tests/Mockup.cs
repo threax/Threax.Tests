@@ -15,7 +15,7 @@ namespace Threax.AspNetCore.Tests
     public class Mockup : IDisposable
     {
         private Dictionary<Type, Object> createdObjects = new Dictionary<Type, Object>(); //Objects that were created directly
-        private MockServiceCollection mockServiceCollection = new MockServiceCollection();
+        private ServiceCollection mockServiceCollection = new ServiceCollection();
         private ServiceProvider serviceProvider = null;
         private IServiceScope scope = null;
 
