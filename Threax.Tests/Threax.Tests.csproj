@@ -11,10 +11,11 @@
     <RepositoryUrl>https://github.com/threax/Threax.Tests</RepositoryUrl>
     <Authors>Andrew Piper</Authors>
     <Company />
-    <PackageLicenseUrl>https://github.com/threax/Threax.Tests/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageLicenseUrl></PackageLicenseUrl>
     <Copyright></Copyright>
     <PackageReleaseNotes>This version has the same external interface, but switches to using .net depenency injection under the hood. This allows for easier testing of libraries that setup services themselves. It requires Microsoft.Extensions.DependencyInjection where before it just used the abstractions.
 2.0.1 - Stop using custom service collection.</PackageReleaseNotes>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
