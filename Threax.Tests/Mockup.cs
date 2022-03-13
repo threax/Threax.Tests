@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Moq;
 using System;
 using System.Collections.Generic;
@@ -49,6 +50,25 @@ namespace Threax.AspNetCore.Tests
             }
 
             mockServiceCollection.AddSingleton(typeof(T), s => cb(this));
+        }
+
+        /// <summary>
+        /// Add a custom function that is called when a type is requested and creates it. This can return anything
+        /// as long as its an instance of T (could be a mock or real object). This function will always replace
+        /// any previously registered callback. Anything registered this way will be added as a singleton.
+        /// You can call add as much as you want until you start calling Get any services added after the first call to Get
+        /// will be ignored.
+        /// </summary>
+        /// <typeparam name="T">The type to register.</typeparam>
+        /// <param name="cb">The callback to call when type needs to be created.</param>
+        public void TryAdd<T>(Func<Mockup, T> cb)
+        {
+            if (serviceProvider != null)
+            {
+                throw new InvalidOperationException($"Cannot register a type after calling '{nameof(Get)}' once.");
+            }
+
+            mockServiceCollection.TryAddSingleton(typeof(T), s => cb(this));
         }
 
         /// <summary>
